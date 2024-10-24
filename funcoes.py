@@ -16,4 +16,10 @@ def preenche_frota(frota,nome_nav,linha, coluna, orientacao, tamanho):
     else:
         frota[nome_nav]=[nova_posi]
     return frota
-    
+def faz_jogada(tabu, linha, coluna):
+ 
+    if tabu[linha][coluna] == 1:
+        tabu[linha][coluna] = 'X' 
+    else:
+        tabu[linha][coluna] = '-' 
+    return tabu
