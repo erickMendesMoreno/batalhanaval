@@ -23,3 +23,11 @@ def faz_jogada(tabu, linha, coluna):
     else:
         tabu[linha][coluna] = '-' 
     return tabu
+def posiciona_frota(frota):
+    tabunv = [[0 for i in range(10)] for i in range(10)]
+    for nome_nav, posicoes in frota.items():
+        for posicao in posicoes:
+            for linha, coluna in posicao:
+                tabunv[linha][coluna] = 1
+
+    return tabunv
