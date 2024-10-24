@@ -32,3 +32,5 @@ def posiciona_frota(frota):
                 tabunv[linha][coluna] = 1
 
     return tabunv
+def teste ():
+    return
