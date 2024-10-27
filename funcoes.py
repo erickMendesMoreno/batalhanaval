@@ -31,8 +31,7 @@ def posiciona_frota(frota):
                 tabunv[linha][coluna] = 1
 
     return tabunv
-<<<<<<< HEAD
-
+    
 def afundados(info_pos, estado_atual):
     navios_afundados = 0
     for navios, lista_de_posicoes in info_pos.items():
@@ -41,5 +40,5 @@ def afundados(info_pos, estado_atual):
                 navios_afundados += 1 
 
     return navios_afundados
-=======
->>>>>>> 2022767ceedaf7b0191b3968b95a764784e0190a
+
+
