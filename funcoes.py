@@ -31,7 +31,6 @@ def posiciona_frota(frota):
                 tabunv[linha][coluna] = 1
 
     return tabunv
-<<<<<<< HEAD
 
 def afundados(info_pos, estado_atual):
     navios_afundados = 0
@@ -41,5 +40,19 @@ def afundados(info_pos, estado_atual):
                 navios_afundados += 1 
 
     return navios_afundados
-=======
->>>>>>> 2022767ceedaf7b0191b3968b95a764784e0190a
+
+def posicao_valida(info_navis, linha_escolhida, coluna_escolhida, ort, tmnh):
+    if ort == 'vertical':
+        if linha_escolhida + tmnh > 10:
+            return False
+    if ort == 'horizontal':
+        if coluna_escolhida + tmnh > 10:
+            return False
+    definida = define_posicoes(linha_escolhida,coluna_escolhida, ort, tmnh)
+    for pos_requerida in definida:
+        for lista_navios in info_navis.values():
+            for navio in lista_navios:
+                for pos_navio in navio:   
+                    if pos_requerida == pos_navio:
+                        return False
+    return True
