@@ -17,7 +17,6 @@ def preenche_frota(frota,nome_nav,linha, coluna, orientacao, tamanho):
         frota[nome_nav]=[nova_posi]
     return frota
 def faz_jogada(tabu, linha, coluna):
- 
     if tabu[linha][coluna] == 1:
         tabu[linha][coluna] = 'X' 
     else:
@@ -31,3 +30,12 @@ def posiciona_frota(frota):
                 tabunv[linha][coluna] = 1
 
     return tabunv
+
+def afundados(info_pos, estado_atual):
+    navios_afundados = 0
+    for navios, lista_de_posicoes in info_pos.items():
+        for posicoes_navio in lista_de_posicoes:
+            if all(estado_atual[x][y] == 'X' for x, y in posicoes_navio):
+                navios_afundados += 1 
+
+    return navios_afundados
