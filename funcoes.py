@@ -22,6 +22,7 @@ def faz_jogada(tabu, linha, coluna):
     else:
         tabu[linha][coluna] = '-' 
     return tabu
+
 def posiciona_frota(frota):
     tabunv = [[0 for i in range(10)] for i in range(10)]
     for nome_nav, posicoes in frota.items():
@@ -30,6 +31,7 @@ def posiciona_frota(frota):
                 tabunv[linha][coluna] = 1
 
     return tabunv
+<<<<<<< HEAD
 
 def afundados(info_pos, estado_atual):
     navios_afundados = 0
@@ -39,3 +41,5 @@ def afundados(info_pos, estado_atual):
                 navios_afundados += 1 
 
     return navios_afundados
+=======
+>>>>>>> 2022767ceedaf7b0191b3968b95a764784e0190a
