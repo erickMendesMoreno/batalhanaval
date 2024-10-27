@@ -31,11 +31,6 @@ def posiciona_frota(frota):
                 tabunv[linha][coluna] = 1
 
     return tabunv
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 3587238f84dc542091b644c0741df1956155c4b8
 def afundados(info_pos, estado_atual):
     navios_afundados = 0
     for navios, lista_de_posicoes in info_pos.items():
@@ -60,3 +55,57 @@ def posicao_valida(info_navis, linha_escolhida, coluna_escolhida, ort, tmnh):
                     if pos_requerida == pos_navio:
                         return False
     return True
+
+#Programa
+espaco = {
+    "porta-aviões":4,
+    "navio-tanque":3,
+    "contratorpedeiro":2,
+}   
+frota = {
+    "porta-aviões":[],
+    "navio-tanque":[],
+    "contratorpedeiro":[],
+    "submarino": [],
+}
+frota_jogador = {
+    "porta-aviões":[],
+    "navio-tanque":[],
+    "contratorpedeiro":[],
+    "submarino": [],
+}
+
+for nome, posicao in frota.items():
+    if nome == 'submarino':
+        print('Insira as informações referentes ao navio', nome, 'que possui tamanho', 1)
+        linha = int(input('Qual a linha que você deseja'))
+        coluna = int(input('Qual a coluna que você deseja'))
+        valido = posicao_valida(frota, linha, coluna, 'vertical', espaco[nome])
+        while valido != True:
+                print('Insira as informações referentes ao navio', nome, 'que possui tamanho', espaco[nome])
+                linha = int(input('Qual a linha que você deseja'))
+                coluna = int(input('Qual a coluna que você deseja'))
+                orientacao = int(input('Selecione a posição: 1 - vertical e 2 - horizontal'))
+                valido = posicao_valida(frota, linha, coluna, 'vertical', espaco[nome])
+        position = preenche_frota(linha, coluna, orientacao, espaco[nome])
+        frota_jogador[nome].append(position)
+        posicao.append([linha, coluna])
+    else:
+        i = 0
+        while i < espaco[nome]:
+            print('Insira as informações referentes ao navio', nome, 'que possui tamanho', espaco[nome])
+            linha = int(input('Qual a linha que você deseja'))
+            coluna = int(input('Qual a coluna que você deseja'))
+            orientacao = int(input('Selecione a posição: 1 - vertical e 2 - horizontal'))
+            valido = posicao_valida(frota, linha, coluna, orientacao, espaco[nome])
+            while valido != True:
+                print('Insira as informações referentes ao navio', nome, 'que possui tamanho', espaco[nome])
+                linha = int(input('Qual a linha que você deseja'))
+                coluna = int(input('Qual a coluna que você deseja'))
+                orientacao = int(input('Selecione a posição: 1 - vertical e 2 - horizontal'))
+                valido = posicao_valida(frota, linha, coluna, orientacao, espaco[nome])
+            posicao.append([linha, coluna])
+            position = preenche_frota(frota, nome, linha, coluna, orientacao, espaco[nome])
+            frota_jogador[nome].append(position)
+            i += 1
+print(frota)
